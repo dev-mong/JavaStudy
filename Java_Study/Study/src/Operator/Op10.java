@@ -9,6 +9,7 @@ public class Op10 {
 //		예를들어 'A‘의 코드는65이고 ’a'의 코드는97이다. 
 		
 		char ch = 'A';
+		// 삼항연산자로 대문자 확인 -> 소문자로 변환 
 		char lowerCase =  ch >= 'A' && ch <= 'Z'? (char)(ch + 32):ch;
 	
 		System.out.println("ch: " + ch);
