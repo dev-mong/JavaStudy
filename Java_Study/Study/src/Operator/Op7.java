@@ -10,12 +10,11 @@ public class Op7 {
 		
 		int fahrenheit = 100;
 		
-// 		float celcius = (float)5 / 9 * (fahrenheit - 32);
+		// 결과 값 반올림 수 구하기 
 		float celcius =  (int)((5 / 9f * (fahrenheit - 32)) * 100 + 0.5) / 100f;
 		
 		System.out.println("Fahrenheit" + fahrenheit);
 		System.out.println("Celcius" + celcius);
-		
 		
 		
 	}
