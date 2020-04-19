@@ -9,19 +9,19 @@ public class Op2 {
 //		13개의 바구니가 필요할 것이다.(1)에 알맞은 코드를 넣으시오.
 		
 		
-		int apple, bucket, numBucket; 
-		apple = 123;
-		
-		bucket = apple / 10;
-		numBucket = apple % 10;
-		
-		System.out.println(bucket);
-		
-		if (numBucket != 0){
-			bucket += 1;
-			System.out.println("필요한 바구니 수" + bucket);
-			
-		}
+//		int apple, bucket, numBucket; 
+//		apple = 123;
+//		
+//		bucket = apple / 10;
+//		numBucket = apple % 10;
+//		
+//		System.out.println(bucket);
+//		
+//		if (numBucket != 0){
+//			bucket += 1;
+//			System.out.println("필요한 바구니 수" + bucket);
+//			
+//		}
 		
 		int numOfApples =123; // 사과의 개수
 
