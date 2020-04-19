@@ -12,13 +12,24 @@ public class WhileEx5 {
 		int sum = 0;
 		while (true) {
 
-			if (i % 2 != 0) {
-				sum += i;
-			} else if (i % 3 == 0) {
-				System.out.println(i);
+//			if (i % 2 != 0) {
+//				sum += i;
+//			} else if (i % 3 == 0) {
+//				System.out.println(i);
+//				sum += i;
+//			}
+//			if (sum > 1000) {
+//				System.out.println("마지막으로 더한 수: " + i);
+//				System.out.println("합 :" + sum);
+//				break;
+//			}
+//			i++;
+			
+			if(i%2!=0&&i%3==0) {
 				sum += i;
 			}
-			if (sum > 1000) {
+			
+			if(sum > 100) {
 				System.out.println("마지막으로 더한 수: " + i);
 				System.out.println("합 :" + sum);
 				break;
