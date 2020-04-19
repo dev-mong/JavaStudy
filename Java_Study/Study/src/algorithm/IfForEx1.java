@@ -1,7 +1,7 @@
 package algorithm;
 
 
-public class Ex2_13 {
+public class IfForEx1 {
 
 	public static void main(String[] args) {
 //		문자열 숫자 판별

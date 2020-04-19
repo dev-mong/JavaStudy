@@ -1,6 +1,6 @@
 package algorithm;
 
-public class Ex2_14 {
+public class IfForEx2 {
 
 	public static void main(String[] args) {
 //		숫자 맞추기 게임 

@@ -1,7 +1,7 @@
 package algorithm;
 
 
-public class Ex2_9 {
+public class IfForEx6 {
 
 	public static void main(String[] args) {
 //		문자열이"12345"라면, ‘1+2+3+4+5’의 결과인 15

@@ -1,7 +1,7 @@
 package algorithm;
 
 
-public class Ex2_8 {
+public class IfForEx5 {
 
 	public static void main(String[] args) {
 //		2x+4y=10의 모든 해

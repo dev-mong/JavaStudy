@@ -1,6 +1,6 @@
 package algorithm;
 
-public class Ex2_15 {
+public class IfForEx3 {
 
 	public static void main(String[] args) {
 //		회문수 프로그램
