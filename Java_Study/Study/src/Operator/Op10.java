@@ -8,13 +8,6 @@ public class Op10 {
 //		문자코드는 소문자가 대문자보다32만큼 더 크다.
 //		예를들어 'A‘의 코드는65이고 ’a'의 코드는97이다. 
 		
-		/*
-		 * char ch = 'A'; 
-		 * char ch_chage = (char)(ch + 32);
-		 * 
-		 * System.out.println(ch_chage);
-		 */
-		
 		char ch = 'A';
 		char lowerCase =  ch >= 'A' && ch <= 'Z'? (char)(ch + 32):ch;
 	
