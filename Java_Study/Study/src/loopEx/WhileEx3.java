@@ -4,26 +4,18 @@ public class WhileEx3 {
 
 	public static void main(String[] args) {
 
-		int num1 = 1;
-
-		int num2 = 1;
-
-		int num3 = 0;
-
-		System.out.print(num1 + "," + num2);
-
-		for (int i = 0; i < 8; i++) {
-
-			num3 = num1 + num2;
-
-			num1 = num2;
-
-			num2 = num3;
-
-			System.out.print("," + num3);
+		 int i = 1;
+		  int sum = 0;
+		  while (i <= 1000) {
+		   if ((i % 2 == 0) && (i % 7 == 0)) {
+		    System.out.println("2의배수이면서 7의 배수인 수: " +i);
+		    sum += i;
+		   }
+		   i++;
+		  }
+		  System.out.println("총 합:" + sum);
 
 		}
 
 	}
 
-}
