@@ -28,9 +28,8 @@ public class Phonelnfor02 {
 	
 	
 	void data() {
-		System.out.println(this.name);
-		System.out.println(this.phoneNumber);
-		System.out.println(this.birthDay);
+		String setData = this.name+this.phoneNumber+this.birthDay;
+		System.out.println(setData);
 	}
 	
 	
@@ -45,7 +44,7 @@ public class Phonelnfor02 {
 		Scanner input = new Scanner(System.in);
 		
 		int i =0;		
-		while(i<10) {
+		while(i<5) {
 		
 		System.out.println("이름을 입력하세요");
 		name = input.nextLine();
