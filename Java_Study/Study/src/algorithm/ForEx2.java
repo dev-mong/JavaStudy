@@ -1,9 +1,9 @@
-package loopEx;
+package algorithm;
 
-public class WhileEx3 {
+public class ForEx2 {
 
 	public static void main(String[] args) {
-
+		
 		int num1 = 1;
 
 		int num2 = 1;
@@ -23,7 +23,6 @@ public class WhileEx3 {
 			System.out.print("," + num3);
 
 		}
-
 	}
 
 }
