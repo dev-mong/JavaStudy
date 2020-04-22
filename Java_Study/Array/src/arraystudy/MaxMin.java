@@ -6,7 +6,7 @@ public class MaxMin {
 
 	public static int miniValue(int[] arr) {
 		
-		int min=100;
+		int min=arr[0]; // 기준 값을 첫번쨰 값으로 설정 
 		for(int i=0;i<arr.length;i++) {
 			if(arr[i]<min)
 			{
