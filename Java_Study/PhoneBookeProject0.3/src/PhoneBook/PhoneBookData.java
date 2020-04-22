@@ -29,6 +29,5 @@ public class PhoneBookData {
 		return this.name.equals(nameInput);
 	}
 	
-	
-	
+
 }
