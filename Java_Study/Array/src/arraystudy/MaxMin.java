@@ -42,10 +42,10 @@ public class MaxMin {
 		}
 		
 		//최소값
-		int min = MaxMin.miniValue(arr);
+		int min = miniValue(arr);
 		System.out.println("최소값: "+min);
 		//최대값
-		int max = MaxMin.maxValue(arr);
+		int max = maxValue(arr);
 		System.out.println("최대값: "+max);	
 
 	}
