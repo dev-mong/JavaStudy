@@ -49,7 +49,7 @@ public class ArrayEx2 {
 		
 		array.data(arr, 1);
 		System.out.println("-------------");
-		array.change();
+//		array.change();
 		
 	}
 }

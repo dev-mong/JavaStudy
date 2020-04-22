@@ -24,12 +24,12 @@ public class Phonelnfor03 {
 		this.phoneNumber=phoneNumber;
 		this.birthDay="입력없음 ";
 	}
-		
-	
+			
 	public static void main(String[] args) {
 		
 		Phonelnfor03 ph =new Phonelnfor03(); // 객체 생성
 		Scanner input = new Scanner(System.in);
+		
 		
 		String name = null;
 		String phoneNumber=null;
