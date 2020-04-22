@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ArrayEx {
 
-	
+	//2차원 배열의 모든 요소 값 더하기 
 	public static void addOneDArr(int[][] arr,int add) {
 		for(int i=0;i<arr.length;i++) {
 			for(int j=0;j<arr[i].length;j++) {
@@ -28,7 +28,7 @@ public class ArrayEx {
 			
 		}
 		
-		ArrayEx.addOneDArr(arr, 1);		
+		addOneDArr(arr, 1);		
 	}
 
 }
