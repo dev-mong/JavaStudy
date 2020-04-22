@@ -28,8 +28,7 @@ public class ArrayEx {
 			
 		}
 		
-		ArrayEx.addOneDArr(arr, 1);
-		
+		ArrayEx.addOneDArr(arr, 1);		
 	}
 
 }
