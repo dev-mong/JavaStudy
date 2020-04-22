@@ -19,23 +19,26 @@ public class ArrayEx2 {
 		return arr;
 	}
 	
-	void change() {
-		
-		int change[][] = new int[3][3];
-			
-			for(int i=0;i<arr[0].length;i++) {			
-				change[0][i] = this.arr[2][i];
-				System.out.print(change[0][i]+" ");
-			}System.out.println();
-			
-			for(int i=1;i<arr.length;i++) {
-				for(int j=0;j<arr[i].length;j++) {
-				change[i][j] = this.arr[i-1][j];
-				System.out.print(change[i][j]+" ");
-				}System.out.println();
-			}
-		
-	}
+//	void change() {		
+//		int change[][] = new int[3][3];			
+//			for(int i=0;i<arr[0].length;i++) {			
+//				change[0][i] = this.arr[2][i];
+//				System.out.print(change[0][i]+" ");
+//			}System.out.println();			
+//			for(int i=1;i<arr.length;i++) {
+//				for(int j=0;j<arr[i].length;j++) {
+//				change[i][j] = this.arr[i-1][j];
+//				System.out.print(change[i][j]+" ");
+//				}System.out.println();
+//			}		
+//	}
+	
+	// 주소값을 이용하여 재풀이 
+	
+	
+	
+	
+	
 	
 	
 	public static void main(String[] args) {
