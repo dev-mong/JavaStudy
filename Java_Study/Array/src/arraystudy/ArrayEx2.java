@@ -22,13 +22,7 @@ public class ArrayEx2 {
 	void change() {
 		
 		int change[][] = new int[3][3];
-		
-//		for(int i=0;i<change.length;i++) {
-//			for(int j=0;j<change[i].length;j++) {
-//				change [i][j] = this.arr[1-i][j];
-//				System.out.print(change[i][j]+" ");
-//			} System.out.println();
-		
+			
 			for(int i=0;i<arr[0].length;i++) {			
 				change[0][i] = this.arr[2][i];
 				System.out.print(change[0][i]+" ");
