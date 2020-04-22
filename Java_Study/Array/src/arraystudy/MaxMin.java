@@ -4,12 +4,6 @@ import java.util.Scanner;
 
 public class MaxMin {
 
-//	int arr[] =new int[5];
-	
-	MaxMin(){
-//		this.arr=arr;
-	}
-	
 	public static int miniValue(int[] arr) {
 		
 		int min=100;
@@ -52,9 +46,7 @@ public class MaxMin {
 		System.out.println("최소값: "+min);
 		//최대값
 		int max = MaxMin.maxValue(arr);
-		System.out.println("최대값: "+max);
-		
-		
+		System.out.println("최대값: "+max);	
 
 	}
 
