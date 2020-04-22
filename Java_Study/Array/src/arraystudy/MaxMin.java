@@ -45,7 +45,8 @@ public class MaxMin {
 		int min = miniValue(arr);
 		System.out.println("최소값: "+min);
 		//최대값
-		int max = maxValue(arr);
+		int max = maxValue(arr); 
+		
 		System.out.println("최대값: "+max);	
 
 	}
