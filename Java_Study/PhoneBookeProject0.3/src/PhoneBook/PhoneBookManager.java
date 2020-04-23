@@ -20,33 +20,45 @@ public class PhoneBookManager {
 		
 	}
 
+	//필수 사항 확인
+	String dataCheck(String instanceData) {	
+		while(true) {
+			if(instanceData==null||instanceData.trim().isEmpty()){
+				System.out.println("필수 항목입니다. 다시 입력하세요.");
+				instanceData=sc.nextLine();
+				continue;
+			} else {
+				break;
+			}
+			}
+		return instanceData;
+	}
 	
 	//Data 객체 생성 
 	PhoneBookData instance() {
 		
 		//이름 입력
+		
 		System.out.println("이름을 입력하세요");
 		String name=sc.nextLine();
-		if(name.trim().isEmpty()){
-			System.out.println("이름은 필수 항목입니다. 이름을 다시 입력하세요.");
-			name=sc.nextLine();
-		}
+		name=dataCheck(name); //이름이 필수사항 확인 
+			
 		//전화번호 입력
 		System.out.println("전화번호를 입력하세요");
 		String phoneNumber=sc.nextLine();
-		if(phoneNumber.trim().isEmpty()){
-			System.out.println("전화번호는 필수 항목입니다. 전화번호를 다시 입력하세요.");
-			phoneNumber=sc.nextLine();
-		}
+		phoneNumber=dataCheck(phoneNumber);//전화번호 필수사항 확인 
+		
 		//생년월일 입력
 		System.out.println("생년월일을 입력하세요");
 		String birthday=sc.nextLine();
-		
+
 		//객체 생성 
 		data = new PhoneBookData(name,phoneNumber,birthday);
 		if(birthday==null||birthday.trim().isEmpty()){ //생일 입력값이 없음,공백을제거
 			data=new PhoneBookData(name,phoneNumber);
-		}		
+		
+		}
+		
 		return data;
 	}//instance 
 	
@@ -60,8 +72,13 @@ public class PhoneBookManager {
 	
 	//데이터 전체 출력 
 	void showAllData() {
+		
+		
 		for(int i=0;i<length;i++) {
-			phoneData[i].showData();
+				phoneData[i].showData();
+			
+//			phoneData[i].showData();
+//			phoneData[i].showData();
 			System.out.println("------------------------");
 		}
 	}
@@ -89,7 +106,6 @@ public class PhoneBookManager {
 		System.out.println("검색 할 이름을 입력하세요");
 		String nameInput= sc.nextLine();
 		 
-
 		index = searchName(nameInput);
 		
 		//index값을 이용하여 검색된 이름의 데이터 값 출력 
@@ -141,7 +157,8 @@ public class PhoneBookManager {
 				 }
 					
 				}
-				System.out.println("\""+nameInput+"\"님의 이름은\" "+phoneData[index].name+"\"로 수정되었습니다.");
+				System.out.println("\""+nameInput+"\"님의 이름은\" "+phoneData[index].name+"\"로 수정되었습니다. \n");
+	
 				break; //switch문 종료 
 				
 			case 2:
@@ -156,7 +173,7 @@ public class PhoneBookManager {
 					 break;
 				 }
 				}
-					System.out.println("\""+nameInput+"\"님의 번호가 \" "+phoneData[index].phoneNumber+"\"로 수정되었습니다.");
+					System.out.println("\""+nameInput+"\"님의 번호가 \" "+phoneData[index].phoneNumber+"\"로 수정되었습니다. \n");
 				break;
 
 			case 3:
@@ -176,6 +193,7 @@ public class PhoneBookManager {
 		
 	}
 	
+	//삭제 여부 확인 
 	void deleteCheck(String nameInput,String delete) {
 		
 		if(delete.equals("Yes")||delete.equals("yes")) {
@@ -207,19 +225,16 @@ public class PhoneBookManager {
 			phoneData[index].showData(); //데이터 출력
 			
 			//삭제 여부 질문
+			System.out.println();
 			System.out.println("삭제하겠습니까? Yes or No");
 			String delete = sc.nextLine();
-			
-			
-			//yes or no 
-//			deleteCheck(nameInput,delete);
-			
-			
+					
 			while(true) {
 		
 				if(delete.trim().isEmpty()) {
 					System.out.println("Yes(yes) 또는 No(no) 입력하세요");
 					delete = sc.nextLine();
+					
 				} else {
 					deleteCheck(nameInput,delete);
 					break;
