@@ -8,14 +8,10 @@ public class PaperBox extends Box{
 	}
 	
 	@Override	
-	public void wrapOverriding() {
-		System.out.println("paper wrap1");
-	}
-	
-	public void wrapOverroding() {
-		super.wrapOverroding();
+	public void wrap() {
 		System.out.println("paper wrap");
 	}
+
 	
 	
 	

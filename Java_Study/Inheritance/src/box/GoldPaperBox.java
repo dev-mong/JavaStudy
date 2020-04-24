@@ -7,12 +7,9 @@ public class GoldPaperBox extends PaperBox{
 	}
 	
 	@Override	
-	public void wrapOverriding() {
-		System.out.println("gold wrap1");
-	}
-	
-	public void wrapOverroding() {
-		super.wrapOverroding();
+	public void wrap() {
 		System.out.println("gold wrap");
 	}
+	
+
 }

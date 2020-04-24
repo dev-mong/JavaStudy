@@ -6,15 +6,10 @@ public class Box {
 		System.out.println("simpe wrap");
 	}
 	
-	public void wrapOverriding() {
-		System.out.println("simpe wrap1");
+	public void wrap() {
+		System.out.println("simpe wrap");
 	}
 
-	public void wrapOverroding() {
-		System.out.println("----------");
-		System.out.println("simpe wrap");
-		
-	}
 }
 
 

@@ -16,9 +16,8 @@ public class InstaceOf {
 	
 	public static void wrapBox(Box box) {
 
-		box.wrapOverriding();
-		
-//		box.wrapOverroding();
+		box.wrap();
+
 	}
 
 }
