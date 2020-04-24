@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class PhoneBookMenu {
 	
-//	Scanner sc;
+
 	PhoneBookManager manager = new PhoneBookManager();
 	
 	public PhoneBookMenu(){
-//		sc=new Scanner(System.in);
+
 	}
 	
 	 public static void menuPrint() {
