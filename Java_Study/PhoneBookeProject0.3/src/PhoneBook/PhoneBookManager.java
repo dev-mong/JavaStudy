@@ -24,7 +24,7 @@ public class PhoneBookManager {
 	String dataCheck(String instanceData) {	
 		while(true) {
 			if(instanceData==null||instanceData.trim().isEmpty()){
-				System.out.println("필수 항목입니다. 다시 입력하세요.");
+				System.out.println("필수 항목입니다.다시 입력하세요.");
 				instanceData=sc.nextLine();
 				continue;
 			} else {
@@ -69,6 +69,7 @@ public class PhoneBookManager {
 		length++;
 	}
 	
+	 
 	
 	//데이터 전체 출력 
 	void showAllData() {
@@ -76,27 +77,38 @@ public class PhoneBookManager {
 		
 		for(int i=0;i<length;i++) {
 				phoneData[i].showData();
-			
-//			phoneData[i].showData();
-//			phoneData[i].showData();
+
 			System.out.println("------------------------");
 		}
 	}
 	
 	
+	int count = 0; // 같은 이름이 존재하면 count 증가
+	int[] tmp;
+	
 	//이름으로 데이터 검색 
 	int searchName(String nameInput) {
 		
 		int index =-1;
+		
 		//객체 배열에 이름이 존재하는지 확인 
 		for(int i=0;i<length;i++) { //phoneData 배열 반복
-			if(phoneData[i].name(nameInput)) { //phoneData객체 배열에 이름이 같을 때 
+			if(phoneData[i].name(nameInput)) { //phoneData객체 배열에 이름을 검색 
 				System.out.println("========\""+nameInput+"\"님 정보======="); // 출력
+				phoneData[i].showData(); 
 				index = i; // index값을 변경 
+				
+				count++; //이름검색 했을 때 참이면 count 증가
+				//동일한 이름
+				tmp=new int[count]; // 참일 때 phoneData 배열의 인덱스 값을 저장 할 변수
+				for(int j=0;j<tmp.length;j++) {
+					tmp[j]=index;
+					System.out.println(tmp[j]);
 				}
-			}
-		
-		return index;
+				}
+			
+		}
+			return index;
 	}
 	
 	
@@ -111,8 +123,13 @@ public class PhoneBookManager {
 		//index값을 이용하여 검색된 이름의 데이터 값 출력 
 		if(index<0) {
 			System.out.println("찾으시는 이름이 없습니다.");
-		}else {
-			phoneData[index].showData();//객체 배열의 index값에 저장된 주소값을 참조하여 출력 메서드 호출 
+		}
+		else {
+			
+//			phoneData[index].showData(); // 입력한 이름과 동일 할 때 출력
+			
+		
+			
 		}
 
 	}
@@ -132,6 +149,14 @@ public class PhoneBookManager {
 			phoneData[index].showData(); // 이름으로 찾은 정보 
 			while(true) {
 				
+//			if(count > 0) {
+//				System.out.println("같은 이름이 존재합니다.");
+//				System.out.println("---------수정할 전화번호를 입력하세요-------");
+//				int num = sc.nextInt();
+//				sc.nextLine();	
+//			}
+			
+			
 			System.out.println("--------------------------");
 			System.out.println("<<<<수정할 정보를 선택하세요>>>>");
 			System.out.println("1.이름");
@@ -179,7 +204,12 @@ public class PhoneBookManager {
 			case 3:
 				System.out.println("수정할 생년월일을 입력하세요");
 				phoneData[index].birthday=sc.nextLine();
+				if(phoneData[index].birthday.trim().isEmpty()) {
 				System.out.println("\""+nameInput+"\"님의 생년월일 입력값이 없습니다.");
+				}else
+				{
+					System.out.println("\""+nameInput+"\"님의 생년월일은 \""+phoneData[index].birthday+"\"로 수정되었습니다. \n");
+				}
 				break;
 				
 			case 4:

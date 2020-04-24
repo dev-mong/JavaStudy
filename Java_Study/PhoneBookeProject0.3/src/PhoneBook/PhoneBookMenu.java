@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class PhoneBookMenu {
 	
-
 	PhoneBookManager manager = new PhoneBookManager();
 	
 	public PhoneBookMenu(){
@@ -28,7 +27,7 @@ public class PhoneBookMenu {
 		while(true) {	
 			menuPrint();			
 			String menuNum=manager.sc.nextLine();
-//			manager.sc.nextLine();
+
 			
 		switch(menuNum) {
 		case "1":			
