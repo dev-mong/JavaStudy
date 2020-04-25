@@ -99,14 +99,12 @@ public class PhoneBookManager {
 				index = i; // index값을 변경 
 				
 				count++; //이름검색 했을 때 참이면 count 증가
-				//동일한 이름
-				tmp=new int[count]; // 참일 때 phoneData 배열의 인덱스 값을 저장 할 변수
-				for(int j=0;j<tmp.length;j++) {
-					tmp[j]=index;
-					System.out.println(tmp[j]);
-				}
-				}
-			
+//				//동일한 이름
+//				tmp=new int[count]; // 참일 때 phoneData 배열의 인덱스 값을 저장 할 변수
+//				for(int j=0;j<count;j++) {
+//					tmp[j]=index;					
+//				} 
+				} 
 		}
 			return index;
 	}
@@ -126,11 +124,14 @@ public class PhoneBookManager {
 		}
 		else {
 			
-//			phoneData[index].showData(); // 입력한 이름과 동일 할 때 출력
-			
+			//동일한 이름
+			tmp=new int[count]; // 참일 때 phoneData 배열의 인덱스 값을 저장 할 변수
+			for(int j=0;j<tmp.length;j++) {
+				tmp[j]=index;
+				System.out.println(tmp[j]);
+			}
+			}
 		
-			
-		}
 
 	}
 	
