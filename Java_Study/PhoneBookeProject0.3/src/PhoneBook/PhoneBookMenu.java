@@ -1,7 +1,5 @@
 package PhoneBook;
 
-import java.util.Scanner;
-
 public class PhoneBookMenu {
 	
 	PhoneBookManager manager = new PhoneBookManager();
@@ -40,6 +38,7 @@ public class PhoneBookMenu {
 		case "2":
 			//데이터 전체 출력
 			System.out.println("---------전화번호 전체 출력-------");		
+			
 			manager.showAllData();
 			System.out.println();
 			break;

@@ -77,65 +77,49 @@ public class PhoneBookManager {
 		
 		for(int i=0;i<length;i++) {
 				phoneData[i].showData();
-
 			System.out.println("------------------------");
 		}
 	}
 	
-	
-	int count = 0; // 같은 이름이 존재하면 count 증가
-	int[] tmp;
-	
+
+
 	//이름으로 데이터 검색 
 	int searchName(String nameInput) {
 		
-		int index =-1;
-		
 		//객체 배열에 이름이 존재하는지 확인 
 		for(int i=0;i<length;i++) { //phoneData 배열 반복
+//			System.out.println(i);
+			
+		
 			if(phoneData[i].name(nameInput)) { //phoneData객체 배열에 이름을 검색 
-				System.out.println("========\""+nameInput+"\"님 정보======="); // 출력
-				phoneData[i].showData(); 
-				index = i; // index값을 변경 
-				
-				count++; //이름검색 했을 때 참이면 count 증가
-//				//동일한 이름
-//				tmp=new int[count]; // 참일 때 phoneData 배열의 인덱스 값을 저장 할 변수
-//				for(int j=0;j<count;j++) {
-//					tmp[j]=index;					
-//				} 
-				} 
+			System.out.println("========\""+nameInput+"\"님 정보======="); // 출력
+			phoneData[i].showData(); 
+			index = i; // index값을 변경 
+			
+			}
+
 		}
+
 			return index;
 	}
 	
 	
-	//데이터 검색
+	
+	//데이터 검색 - 메뉴 3
 	void selectData() {
 		
 		System.out.println("검색 할 이름을 입력하세요");
 		String nameInput= sc.nextLine();
 		 
 		index = searchName(nameInput);
-		
+	
 		//index값을 이용하여 검색된 이름의 데이터 값 출력 
 		if(index<0) {
 			System.out.println("찾으시는 이름이 없습니다.");
 		}
-		else {
-			
-			//동일한 이름
-			tmp=new int[count]; // 참일 때 phoneData 배열의 인덱스 값을 저장 할 변수
-			for(int j=0;j<tmp.length;j++) {
-				tmp[j]=index;
-				System.out.println(tmp[j]);
-			}
-			}
-		
-
 	}
 	
-	//데이터 수정
+	//데이터 수정 - 메뉴 4
 	void update() {
 		
 		System.out.println("수정할 이름을 입력하세요");
@@ -146,24 +130,15 @@ public class PhoneBookManager {
 		if(index<0) {
 			System.out.println("찾으시는 이름이 없습니다.");
 		}else {
-			
-			phoneData[index].showData(); // 이름으로 찾은 정보 
 			while(true) {
-				
-//			if(count > 0) {
-//				System.out.println("같은 이름이 존재합니다.");
-//				System.out.println("---------수정할 전화번호를 입력하세요-------");
-//				int num = sc.nextInt();
-//				sc.nextLine();	
-//			}
-			
-			
+
 			System.out.println("--------------------------");
 			System.out.println("<<<<수정할 정보를 선택하세요>>>>");
 			System.out.println("1.이름");
 			System.out.println("2.전화번호");
 			System.out.println("3.생년월일");
 			System.out.println("4.메뉴로 이동");
+			
 			
 			//수정 메뉴 선택
 			int updateMenu = sc.nextInt();
@@ -174,7 +149,7 @@ public class PhoneBookManager {
 				System.out.println("수정할 이름을 입력하세요");
 				phoneData[index].name=sc.nextLine();
 				while(true) {
-				if(phoneData[index].name.trim().isEmpty()) {//이름 값을 입력하지 않했을 때 조건 실행 
+				if(phoneData[index].name.trim().isEmpty()) {//이름 값을 입력하지 않았을 때 조건 실행 
 					System.out.print("이름은 필수 항목입니다.");
 					System.out.println("수정할 이름을 입력하세요 ");
 					phoneData[index].name=sc.nextLine();
@@ -252,8 +227,6 @@ public class PhoneBookManager {
 		if(index<0) {
 			System.out.println("찾으시는 이름이 없습니다.");
 		}else {
-			
-			phoneData[index].showData(); //데이터 출력
 			
 			//삭제 여부 질문
 			System.out.println();
