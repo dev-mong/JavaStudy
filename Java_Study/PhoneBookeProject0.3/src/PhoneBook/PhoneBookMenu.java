@@ -26,7 +26,6 @@ public class PhoneBookMenu {
 			menuPrint();			
 			String menuNum=manager.sc.nextLine();
 
-			
 		switch(menuNum) {
 		case "1":			
 			//데이터 저장
