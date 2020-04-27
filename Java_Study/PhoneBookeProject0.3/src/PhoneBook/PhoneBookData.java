@@ -38,7 +38,6 @@ public class PhoneBookData {
 
 	//입력한 이름 값 확인
 	boolean name(String nameInput) {
-	
 		return this.name.equals(nameInput);
 	}
 	
