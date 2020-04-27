@@ -30,7 +30,7 @@ public class PhoneBookManager {
 			} else {
 				break;
 			}
-			}
+		}
 		return instanceData;
 	}
 	
@@ -73,8 +73,6 @@ public class PhoneBookManager {
 	
 	//데이터 전체 출력 
 	void showAllData() {
-		
-		
 		for(int i=0;i<length;i++) {
 				phoneData[i].showData();
 			System.out.println("------------------------");
@@ -99,7 +97,6 @@ public class PhoneBookManager {
 			}
 
 		}
-
 			return index;
 	}
 	
@@ -138,7 +135,6 @@ public class PhoneBookManager {
 			System.out.println("2.전화번호");
 			System.out.println("3.생년월일");
 			System.out.println("4.메뉴로 이동");
-			
 			
 			//수정 메뉴 선택
 			int updateMenu = sc.nextInt();
@@ -246,12 +242,10 @@ public class PhoneBookManager {
 				
 			}
 			
-			}
+		   }
 		
 			
-		}
-		
-		
+	    }
 	}
 
 
