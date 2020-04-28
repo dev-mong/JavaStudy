@@ -4,6 +4,7 @@ package ver05;
 
 public class PhoneBookMenu {
 	
+	
 	PhoneBookManager manager=PhoneBookManager.getInstance();
 	
 	public PhoneBookMenu(){
