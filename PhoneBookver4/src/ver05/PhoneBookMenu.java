@@ -37,7 +37,7 @@ public class PhoneBookMenu {
 			System.out.println("<<<<메뉴를 선택하세요>>>>>");
 			System.out.println(MenuInterface.FRIEND+" 친구 전화번호 저장");
 			System.out.println(MenuInterface.UNIV+" 대학 친구 저장");
-			System.out.println(MenuInterface.HEIGHT+" 고교 친구 저장");
+			System.out.println(MenuInterface.HIGH+" 고교 친구 저장");
 			System.out.println(MenuInterface.CLUB+" 동호회 저장");
 			int choose = manager.sc.nextInt();
 			manager.sc.nextLine();

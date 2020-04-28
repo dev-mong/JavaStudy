@@ -11,7 +11,7 @@ public interface MenuInterface {
 	
 	int FRIEND=1;
 	int UNIV=2;
-	int HEIGHT=3;
+	int HIGH=3;
 	int CLUB=4;
 	
 }
