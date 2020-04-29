@@ -17,7 +17,7 @@ public class PhoneBookManager {
 	int index; //이름 검색 시 참조 할객체 배열의 인덱스 값
 	
 	//Manager 생성자 
-	PhoneBookManager(){
+	private PhoneBookManager(){
 		sc=new Scanner(System.in);
 		data=null;
 		phoneData=new PhoneBookDataAbstract[100];
