@@ -17,7 +17,7 @@ public class PhoneUnivlnfor extends PhoneBookDataAbstract{
 		this.major=major;
 		this.year=year;	
 	}
-
+			
 	public void showData() {
 		super.showData();
 		System.out.println("주소: "+this.address);

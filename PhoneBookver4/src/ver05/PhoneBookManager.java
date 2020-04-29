@@ -1,4 +1,5 @@
 package ver05;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PhoneBookManager {
@@ -26,22 +27,51 @@ public class PhoneBookManager {
 		
 	}
 
-	//필수 사항 확인
+	//필수 사항 예외 처리 메소드 - 이름, 전화번호 
 	String dataCheck(String instanceData) {	
-		while(true) {
-			if(instanceData==null||instanceData.trim().isEmpty()){
+		while(true) {			
+			try {
+				if(instanceData==null||instanceData.trim().isEmpty()){
+					InputDataCheck e=new InputDataCheck();
+					throw e;
+				}	
+			} catch(InputDataCheck e) {
 				System.out.println("필수 항목입니다.다시 입력하세요.");
 				instanceData=sc.nextLine();
 				continue;
-			} else {
-				break;
 			}
-			}
-		return instanceData;
+
+			return instanceData;
+		}
 	}
 	
 	//Data 객체 생성 
-	void instance(int choose) {
+	void instance() {
+		
+		//데이터 저장
+		PhoneBookMenu.menuPrintCreate();
+
+		//메뉴 선택 오류 
+		int choose=0;
+		while(true) {
+		try {
+			choose = manager.sc.nextInt();
+			if(!(choose>=MenuInterface.FRIEND&&choose<=MenuInterface.CLUB)) {
+				MenuNumberException e=new MenuNumberException();
+				throw e;
+			}
+		} catch(InputMismatchException e) { //숫자 말고 다른 문자 입력시 오류
+			System.out.println("잘못된 선택입니다. 숫자를 입력해주세요.");
+			continue;
+		} catch(MenuNumberException e) { //숫자 범위 초과
+			System.out.println("번호를 잘못 입력했습니다. 다시 입력해주세요");
+			continue;
+		} finally {
+			manager.sc.nextLine();
+		}
+			break;
+		}
+		
 		
 		//이름 입력
 		System.out.println("이름을 입력하세요");
@@ -52,8 +82,7 @@ public class PhoneBookManager {
 		System.out.println("전화번호를 입력하세요");
 		String phoneNumber=sc.nextLine();
 		phoneNumber=dataCheck(phoneNumber);//전화번호 필수사항 확인 
-		
-		
+			
 		//객체 생성 
 		//메뉴 1 - 일반 친구 저장
 		switch(choose) {
@@ -95,8 +124,6 @@ public class PhoneBookManager {
 			data=new PhoneBookClubInfor(name, phoneNumber, clubName);
 			insertData(data);
 		}
-
-		
 	}//instance 
 	
 	
@@ -109,10 +136,9 @@ public class PhoneBookManager {
 	
 	//데이터 전체 출력 
 	void showAllData() {
-
 		for(int i=0;i<length;i++) {
 			phoneData[i].showData();
-			System.out.println("------------------------");
+			System.out.println("-------------------------------");
 		}
 	}
 	
@@ -167,15 +193,17 @@ public class PhoneBookManager {
 			System.out.println("<<<<수정할 정보를 선택하세요>>>>");
 			System.out.println("1.이름");
 			String name=sc.nextLine();
+			name=dataCheck(name);
 			System.out.println("2.전화번호");
 			String phoneNumber=sc.nextLine();
+			phoneNumber=dataCheck(phoneNumber);
 			
 			//배열에 저장된 객체의 실제 타입을 확인하여 수정 
 			if(phoneData[index] instanceof PhoneFriendInfor) {
 				System.out.println("3.생년월일");
 				String birthday=sc.nextLine();
 				if(birthday.trim().isEmpty()) {
-				data=new PhoneFriendInfor(name, birthday);
+				data=new PhoneFriendInfor(name, phoneNumber);
 				} else {
 					data=new PhoneFriendInfor(name, phoneNumber, birthday);
 				}
@@ -192,7 +220,6 @@ public class PhoneBookManager {
 				String major=sc.nextLine();
 				System.out.println("6.학년");
 				String year=sc.nextLine();
-				data=new PhoneUnivlnfor(name, phoneNumber, address, email, major, year);
 			} else if(phoneData[index] instanceof PhoneCompanyInfor) {
 				System.out.println("3.이메일");
 				String email = sc.nextLine();
