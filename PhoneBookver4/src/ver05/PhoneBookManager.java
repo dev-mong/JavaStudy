@@ -81,7 +81,7 @@ public class PhoneBookManager {
 			insertData(data);
 			break;
 		//메뉴 3 - 고교 친구 저장
-		case MenuInterface.HIGH:
+		case MenuInterface.COMPANY:
 			System.out.println("이메일을 입력하세요");
 			email = sc.nextLine();
 			System.out.println("회사를 입력하세요 ");
