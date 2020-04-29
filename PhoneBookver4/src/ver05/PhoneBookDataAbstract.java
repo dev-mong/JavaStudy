@@ -11,7 +11,7 @@ public abstract class PhoneBookDataAbstract implements PhoneBookInterface{
 		this.name=name;
 		this.phoneNumber=phoneNumber;
 	}
-	
+
 	
 	public void showData() {
 		if(this.name==null&&this.phoneNumber==null) {

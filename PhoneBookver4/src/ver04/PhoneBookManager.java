@@ -74,7 +74,7 @@ public class PhoneBookManager {
 			data=new PhoneUnivlnfor(name,phoneNumber,address,email,major,year);
 			insertData(data);
 			break;
-		//메뉴 3 - 고교 친구 저장
+		//메뉴 3 - 회사 친구 저장
 		case 3:
 			System.out.println("이메일을 입력하세요");
 			email = sc.nextLine();
