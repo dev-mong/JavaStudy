@@ -29,11 +29,11 @@ public class PhoneBookMenu {
 			menuPrint();			
 			int menuNum=manager.sc.nextInt();
 			manager.sc.nextLine();
-
 			
 		switch(menuNum) {
 		case MenuInterface.INSERT:			
 			//데이터 저장
+			
 			System.out.println("<<<<메뉴를 선택하세요>>>>>");
 			System.out.println(MenuInterface.FRIEND+" 친구 전화번호 저장");
 			System.out.println(MenuInterface.UNIV+" 대학 친구 저장");
