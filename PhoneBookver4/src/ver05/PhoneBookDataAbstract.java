@@ -5,7 +5,6 @@ public abstract class PhoneBookDataAbstract implements PhoneBookInterface{
 	
 	String name;
 	String phoneNumber;
-
 	
 	PhoneBookDataAbstract(String name,String phoneNumber){
 		this.name=name;
