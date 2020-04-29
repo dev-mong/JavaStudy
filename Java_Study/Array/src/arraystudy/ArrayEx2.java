@@ -35,12 +35,7 @@ public class ArrayEx2 {
 	
 	// 주소값을 이용하여 재풀이 
 	
-	
-	
-	
-	
-	
-	
+
 	public static void main(String[] args) {
 		
 		int[][] arr = new int[3][3];
