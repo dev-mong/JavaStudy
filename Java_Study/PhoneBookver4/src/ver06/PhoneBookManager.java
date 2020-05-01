@@ -20,7 +20,6 @@ public class PhoneBookManager {
 	int length; // 객체 배열의 길이 
 	int index; //이름 검색 시 참조 할객체 배열의 인덱스 값
 	
-//	private ArrayList<PhoneBookDataAbstract> phoneData;
 	List<PhoneBookDataAbstract> phoneData;
 	
 	
