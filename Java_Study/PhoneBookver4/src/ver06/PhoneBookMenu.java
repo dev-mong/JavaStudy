@@ -1,10 +1,7 @@
 package ver06;
 
 public class PhoneBookMenu {
-	
-	public PhoneBookMenu(){
 
-	}
 	
 	 public static void menuPrint() {
 		 System.out.println("<<<<메뉴를 선택하세요>>>>>");

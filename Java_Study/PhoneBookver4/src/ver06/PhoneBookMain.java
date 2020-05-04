@@ -1,7 +1,5 @@
 package ver06;
 
-
-
 public class PhoneBookMain {
 	
 	public static void main(String[] args) {
@@ -29,10 +27,10 @@ public class PhoneBookMain {
 				
 			switch(menuNum) {
 			
+			//인스턴스 생성 
 			case MenuInterface.INSERT:			
 				manager.instance();
 				break;
-				
 			//데이터 전체 출력
 			case MenuInterface.ALLSHOW:
 				System.out.println("---------전화번호 전체 출력-------");		

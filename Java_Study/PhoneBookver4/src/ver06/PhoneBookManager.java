@@ -125,6 +125,7 @@ public class PhoneBookManager {
 			data=new PhoneCompanyInfor(name,phoneNumber,email,company);
 			insertData(data);
 			break;
+		//메뉴 4 - 동호회 친구 저장 
 		case MenuInterface.CLUB:
 			System.out.println("동호회 이름을 입력하세요");
 			String clubName=sc.nextLine();
@@ -243,7 +244,6 @@ public class PhoneBookManager {
 	
 	//삭제 여부 확인 
 	void deleteCheck(String nameInput,String delete) {
-		
 		if(delete.equals("Yes")||delete.equals("yes")) {
 			phoneData.remove(index);
 			System.out.println("\""+nameInput+"\"님의 정보가 삭제되었습니다.");
