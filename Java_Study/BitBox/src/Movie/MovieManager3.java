@@ -1,6 +1,7 @@
 package Movie;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -48,27 +49,10 @@ public class MovieManager3 {
 	
 	int index;
 	
-	//영와 정보가 없을 때 예외 처리
-	int checkSelect(String title) {
-		while(true) {
-		try {
-			for(int i=0;i<movieList.size();i++) {
-				if(!(movieList.get(i).getTitle().equals(title))) {
-					InputException e=new InputException();
-					throw e;
-				} else if(movieList.get(i).getTitle().equals(title)){
-					index=i;
-				}
-			}
-		}catch(InputException e) {
-			e.eidtPrint();
-			title=ip.nextLine();
-			continue;
-		}
-		return index;
-		}
-		
-		}
+	//영화 정보가 없을 때 예외 처리
+	String checkSelect(String title) {
+		return title;
+	}
 	
 	
 	//입력 값 예외 처리 
@@ -110,24 +94,55 @@ public class MovieManager3 {
 	//영화 수정
 	void editMovie() {
 		
-		
-		
-		System.out.println("---수정 할 영화 제목을 입력하세요---");
+		System.out.println("\n---수정 할 영화 제목을 입력하세요---");
 		title=ip.nextLine();
-		title=checkInput(title); //예외 처리 
-		index=checkSelect(title);
-
+		title=checkInput(title); //공백 예외 처리 
+//		title=checkSelect(title); //입력한 영화 제목이 없을 때 예외 처리 
+		
+		while(true) {
+			try {
+				for(int i=0;i<movieList.size();i++)
+				if(!(movieList.get(i).getTitle().equals(title)))
+				{
+					InputException e=new InputException();
+					throw e;
+				}
+			}catch(InputException e) {
+				e.eidtPrint();
+				title=ip.nextLine();
+				continue;
+			}
+			break;
+		}
 		
 		for(int i=0;i<movieList.size();i++) {
-		
-			if(movieList.get(i).getTitle().equals(title)) {
-				
+		if(movieList.get(i).getTitle().equals(title)) {
+			
 			while(true) {	
 				
 			BitBoxMenu.MenuEdit();
-				
-			int editMenu=ip.nextInt();
-			ip.nextLine();
+			
+			int editMenu;
+			try{
+				editMenu = ip.nextInt();
+				if(!(MenuIf.EDITMnue1<=editMenu&&editMenu<=MenuIf.EDITMnue3)) {
+					NumberFormatException e=new NumberFormatException();
+					throw e;
+				}
+			}
+			catch(NumberFormatException e) {
+				System.out.println("잘못된 메뉴 선택입니다. 다시 입력해주세요. \n");
+				continue;
+			}
+			catch(InputMismatchException e) {
+				System.out.println("선택 할 메뉴의 숫자를 입력해주세요. \n ");
+				continue;
+			}
+			finally {
+				ip.nextLine();
+			}
+			
+			
 			
 			switch (editMenu) {
 			//영화 제목 수정
@@ -135,7 +150,7 @@ public class MovieManager3 {
 				System.out.println("영화 제목 입력: ");
 				String editTitle=ip.nextLine();
 				editTitle=checkInput(editTitle); //예외 처리 
-				movieList.get(index).setTitle(editTitle);
+				movieList.get(i).setTitle(editTitle);
 				System.out.println("------------------");
 				System.out.println("\""+title+"\""+"\""+editTitle+"\""+"로 수정되었습니다. \n");
 				break;
@@ -145,7 +160,7 @@ public class MovieManager3 {
 				System.out.println("영화 감독 입력: ");
 				String editDirector=ip.nextLine();
 				editDirector=checkInput(editDirector); //예외 처리 
-				movieList.get(index).setDirector(editDirector);
+				movieList.get(i).setDirector(editDirector);
 				System.out.println("------------------");
 				System.out.println("\""+director+"\""+"\""+editDirector+"\""+"로 수정되었습니다. \n");
 				break;
@@ -156,7 +171,7 @@ public class MovieManager3 {
 				String editRuntimeStr=ip.nextLine();
 				editRuntimeStr=checkInput(editRuntimeStr);
 				int editRuntime=Integer.parseInt(editRuntimeStr);
-				movieList.get(index).setRuntime(editRuntime);
+				movieList.get(i).setRuntime(editRuntime);
 				System.out.println("------------------");
 				System.out.println("\""+runtime+"\""+"\""+editRuntimeStr+"\""+"로 수정되었습니다. \n");
 				break;
