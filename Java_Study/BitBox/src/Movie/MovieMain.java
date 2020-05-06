@@ -6,9 +6,8 @@ public class MovieMain {
 
 	public static void main(String[] args) {
 		
-//		MovieManager m = MovieManager.getInstance();
-//		MovieManager2 m = MovieManager2.getInstance();
-		MovieManager3 m = MovieManager3.getInstance();
+
+		MovieManager m = MovieManager.getInstance();
 		
 		
 		int num;
@@ -42,7 +41,7 @@ public class MovieMain {
 		switch (num) {
 		case MenuIf.SHOWALL: //영화 전체 출력
 			System.out.println("\n<< 영화 정보 전체 출력 >>");
-			m.showAll();
+			m.showAllMovie();
 			break;
 		case MenuIf.ADD: //영화 추가
 			System.out.println("\n<< 영화 정보 추가  >>");

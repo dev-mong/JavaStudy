@@ -1,6 +1,7 @@
 package Movie;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -12,11 +13,15 @@ public class MovieManager {
 	}
 	
 	ArrayList<Movie> movieList;
+	public ArrayList<Movie> getMovieList() {
+		return movieList;
+	}
+
 	Scanner ip = new Scanner(System.in);
 	String title;
 	String director;
 	int runtime;
-	
+	int index=-1;
 	
 	MovieManager(){
 		movieList = new ArrayList<>();
@@ -27,8 +32,7 @@ public class MovieManager {
 	}
 	
 	//영화 정보 전체 출력
-	void showAll() {
-		System.out.println("\n<< 영화 정보 전체 출력 >>");
+	void showAllMovie() {
 		for(int i=0;i<movieList.size();i++) {
 			System.out.println("영화 제목: "+movieList.get(i).getTitle());
 			System.out.println("영화 감독: "+movieList.get(i).getDirector());
@@ -38,14 +42,6 @@ public class MovieManager {
 		System.out.println();
 	}
 	
-	void showMovie() {
-		for(int i=0;i<movieList.size();i++) {
-			System.out.println("영화 제목: "+movieList.get(i).getTitle());
-			System.out.println("영화 감독: "+movieList.get(i).getDirector());
-			System.out.println("영화 런타임: "+movieList.get(i).getRuntime());
-			System.out.println("-------------------");
-		} 
-	}
 	
 	//입력 값 예외 처리 
 	String checkInput(String check) {
@@ -54,7 +50,7 @@ public class MovieManager {
 			if(check.trim().isEmpty()) { //입력값이 공백일 때 예외 발생 
 				InputException e=new InputException();
 				throw e;
-			}  
+			} 
 		}catch(InputException e) {
 			e.print();
 			check=ip.nextLine();
@@ -68,7 +64,6 @@ public class MovieManager {
 	//영화 추가 
 	void addMovie() {
 		
-		System.out.println("\n<< 영화 정보 추가  >>");
 		System.out.println("영화 제목 입력 : ");
 		title = ip.nextLine();
 		title=checkInput(title);
@@ -76,9 +71,6 @@ public class MovieManager {
 		director = ip.nextLine();
 		director=checkInput(director);
 		System.out.println("영화 런타임 입력 : ");
-
-		
-		//runtime = ip.nextLie();
 		String runtimeStr=ip.nextLine();
 		runtimeStr =checkInput(runtimeStr);
 		runtime=Integer.parseInt(runtimeStr);
@@ -88,55 +80,102 @@ public class MovieManager {
 	}
 	
 	
+	int checkName(String title) {
+		
+		for(int i=0;i<movieList.size();i++) {
+			if(movieList.get(i).getTitle().equals(title)) {
+				System.out.println(title+" 선택되었습니다.");
+				index=i;
+			}
+		}
+		return index;
+	}
+	
 	//영화 수정
 	void editMovie() {
 		
-		System.out.println("\n<< 영화 정보 수정  >>");
-		System.out.println("----수정 할 영화 이름을 입력하세요---");
-		title=ip.nextLine();
 		
-		for(int i=0;i<movieList.size();i++) {
-	
-			if(movieList.get(i).getTitle().equals(title)) {
-			System.out.println("\""+title+"\""+"선택되었습니다. \n");
+//		while(true) {
+		System.out.println("---수정 할 영화 제목을 입력하세요---");
+//		
+		while(true) {
+		title=ip.nextLine();
+		title=checkInput(title); //공백 예외 처리 
+		index=checkName(title);
+		
+		if(index<0) {
+			InputException.eidtPrint();
+		} 
+		else {
 			
+		while(true) {	
+				
+			BitBoxMenu.MenuEdit();
+			
+			int editMenu;
+			try{
+				editMenu = ip.nextInt();
+				if(!(MenuIf.EDITMnue1<=editMenu&&editMenu<=MenuIf.EDITMnue4)) {
+					NumberFormatException e=new NumberFormatException();
+					throw e;
+				}
+			}
+			catch(NumberFormatException e) {
+				System.out.println("잘못된 메뉴 선택입니다. 다시 입력해주세요. \n");
+				continue;
+			}
+			catch(InputMismatchException e) {
+				System.out.println("선택 할 메뉴의 숫자를 입력해주세요. \n ");
+				continue;
+			}
+			finally {
+				ip.nextLine();
+			}
+
+			switch (editMenu) {
 			//영화 제목 수정
-			System.out.println("영화 제목 입력: ");
-			String editTitle=ip.nextLine();
-			editTitle=checkInput(editTitle); //예외 처리 
-			movieList.get(i).setTitle(editTitle);
-			System.out.println("----------------------------------");
-			System.out.println("\""+title+"\""+"\""+editTitle+"\""+"로 수정되었습니다. \n");
-			
-			
-			//영화 감독 수정
-			System.out.println("영화 감독 입력: ");
-			String editDirector=ip.nextLine();
-			editDirector=checkInput(editDirector); //예외 처리 
-			movieList.get(i).setDirector(editDirector);
-			System.out.println("----------------------------------");
-			System.out.println("\""+director+"\""+"\""+editDirector+"\""+"로 수정되었습니다. \n");
-			
+			case MenuIf.EDITMnue1: 
+				System.out.println("영화 제목 입력: ");
+				String editTitle=ip.nextLine();
+				editTitle=checkInput(editTitle); //예외 처리 
+				movieList.get(index).setTitle(editTitle);
+				System.out.println("------------------");
+				System.out.println("\""+title+"\""+"\""+editTitle+"\""+"로 수정되었습니다. \n");
+				break;
+				
+			 //영화 감톡 수정	
+			case MenuIf.EDITMnue2:
+				System.out.println("영화 감독 입력: ");
+				String editDirector=ip.nextLine();
+				editDirector=checkInput(editDirector); //예외 처리 
+				movieList.get(index).setDirector(editDirector);
+				System.out.println("------------------");
+				System.out.println("\""+director+"\""+"\""+editDirector+"\""+"로 수정되었습니다. \n");
+				break;
 			
 			//영화 런타임 수정
-			System.out.println("영화  런타임 입력: ");
-//			int editRuntime=ip.nextInt();
-//			ip.nextLine();
-			String editRuntimeStr=ip.nextLine();
-			editRuntimeStr=checkInput(editRuntimeStr);
-			int editRuntime=Integer.parseInt(editRuntimeStr);
-			movieList.get(i).setRuntime(editRuntime);
-			System.out.println("----------------------------------");
-			System.out.println("\""+runtime+"\""+"\""+editRuntimeStr+"\""+"로 수정되었습니다. \n");
-			
-			}//if
-		}
+			case MenuIf.EDITMnue3: 
+				System.out.println("영화  런타임 입력: ");
+				String editRuntimeStr=ip.nextLine();
+				editRuntimeStr=checkInput(editRuntimeStr);
+				int editRuntime=Integer.parseInt(editRuntimeStr);
+				movieList.get(index).setRuntime(editRuntime);
+				System.out.println("------------------");
+				System.out.println("\""+runtime+"\""+"\""+editRuntimeStr+"\""+"로 수정되었습니다. \n");
+				break;
+			case MenuIf.EDITMnue4:
+				System.out.println();
+				return;
+				
+					} //switch - 영화 정보 수정 
+				} //while - 영화 수정 사항 반복
+		}//else
 		
+		}//while
 	}
 	
 	//영화 삭제
 	void delMovie() {
-		System.out.println("\n<< 영화 정보 삭제  >>");
 		System.out.println("---삭제 할 영화 이름을 입력하세요---");
 		title=ip.nextLine();
 		

@@ -13,5 +13,5 @@ public interface MenuIf  {
 	int EDITMnue1=1;
 	int EDITMnue2=2;
 	int EDITMnue3=3;
-	
+	int EDITMnue4=4;
 }
