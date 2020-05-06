@@ -10,8 +10,9 @@ public interface MenuIf  {
 	int MENUHOME=5;
 	
 	//수정 메뉴 선택 
-	int EDITMnue1=1;
-	int EDITMnue2=2;
-	int EDITMnue3=3;
-	int EDITMnue4=4;
+	int EDITMENU1=1;
+	int EDITMENU2=2;
+	int EDITMENU3=3;
+	int EDITMENU4=4;
+	int EDITMENU5=5;
 }

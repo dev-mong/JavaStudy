@@ -13,10 +13,11 @@ public class BitBoxMenu {
 	
 	public static void MenuEdit() {
 		System.out.println("---수정 할 메뉴를 선택하세요---");
-		System.out.println(MenuIf.EDITMnue1+". 영화 제목");
-		System.out.println(MenuIf.EDITMnue2+". 영화 감독");
-		System.out.println(MenuIf.EDITMnue3+". 영화 런타임");
-		System.out.println("4. 돌아가기");
+		System.out.println(MenuIf.EDITMENU1+". 영화 제목");
+		System.out.println(MenuIf.EDITMENU2+". 영화 감독");
+		System.out.println(MenuIf.EDITMENU3+". 영화 런타임");
+		System.out.println(MenuIf.EDITMENU4+". 수정 내용 전체 출력");
+		System.out.println(MenuIf.EDITMENU5+". 돌아가기");
 	}
 	
 		

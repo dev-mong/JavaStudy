@@ -1,6 +1,5 @@
 package Movie;
 
-import java.util.InputMismatchException;
 
 public class MovieMain {
 
@@ -19,7 +18,7 @@ public class MovieMain {
 		
 		//메뉴 선택  예외
 		try{
-			num = m.ip.nextInt();
+			num = Integer.parseInt(m.ip.nextLine().trim());
 			if(!(MenuIf.SHOWALL<=num&&num<=MenuIf.MENUHOME)) {
 				NumberFormatException e=new NumberFormatException();
 				throw e;
@@ -29,14 +28,8 @@ public class MovieMain {
 			System.out.println("잘못된 메뉴 선택입니다. 다시 입력해주세요. \n");
 			continue;
 		}
-		catch(InputMismatchException e) {
-			System.out.println("선택 할 메뉴의 숫자를 입력해주세요. \n ");
-			continue;
-		}
-		finally {
-			m.ip.nextLine();
-		}
 		
+	
 		//메뉴 별 기능 
 		switch (num) {
 		case MenuIf.SHOWALL: //영화 전체 출력
