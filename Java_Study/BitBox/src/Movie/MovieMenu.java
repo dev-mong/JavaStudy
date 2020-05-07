@@ -2,7 +2,8 @@ package Movie;
 
 public class MovieMenu {
 
-	public void ShowMenu() {
+	public static void main(String args[]) {
+//	public void ShowMenu() {
 		MovieManager m = MovieManager.getInstance();
 		
 		int num;
@@ -10,12 +11,12 @@ public class MovieMenu {
 		while(true) {
 			
 		//메뉴 출력	
-		BitBoxMenu.MovieMenu();
+		MenuPrint.MovieMenu();
 		
 		//메뉴 선택  예외
 		try{
 			num = Integer.parseInt(m.ip.nextLine().trim());
-			if(!(MenuIf.SHOWALL<=num&&num<=MenuIf.MENUHOME)) { 
+			if(!(MenuIf.MENUHOME<=num&&num<=MenuIf.DEL)) { 
 				InputException input=new InputException();
 				throw input;
 			}
@@ -48,7 +49,7 @@ public class MovieMenu {
 			m.delMovie();
 			break;
 		case MenuIf.MENUHOME: //홈으로 이동 
-			System.exit(0);
+			return;
 		} //switch
 		
 		}//while

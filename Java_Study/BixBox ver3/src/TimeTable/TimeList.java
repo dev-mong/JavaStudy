@@ -12,6 +12,13 @@ public class TimeList {
 		int selectS;
 		Scanner s=new Scanner(System.in);
 		
+		ArrayList<Integer> timeList=new ArrayList<>();
+		
+		//시간 입력
+		timeList.add(9);
+		timeList.add(12);
+		timeList.add(13);
+		
 		while(true) {
 		
 		System.out.println("<<상영관 목록>>");
@@ -30,11 +37,7 @@ public class TimeList {
 		System.out.println("선택된 상영관: "+sManager.screenList.get(i).getName());
 			}
 			}
-		ArrayList<Integer> timeList=new ArrayList<>();
-		
-		timeList.add(9);
-		timeList.add(12);
-		timeList.add(13);
+	
 //		
 //		for(int i=0;i<timeList.size();i++) {
 //			System.out.println(timeList.get(i)+"시"+"\t");
@@ -63,14 +66,15 @@ public class TimeList {
 		
 		System.out.println("선택 한 시간은 "+timeSelect+"시 입니다.");
 		
-		ArrayList<Integer> a=new ArrayList<>();
-		a.add(timeSelect);
 		
-		for(int i=0;i<a.size();i++) {
-			if(a.get(i)==timeSelect) {
+		for(int i=0;i<timeList.size();i++) {
+			if(timeList.get(i)==timeSelect) {
 				System.out.println("이미 상영 중인 영화가 있습니다.");
 			}
 		}
+		
+		ArrayList<Integer> a=new ArrayList<>();
+		a.add(timeSelect);
 		
 //		for(int i=0;i<timeList.size();i++) {
 //			if(timeList.get(i)==timeSelect) {

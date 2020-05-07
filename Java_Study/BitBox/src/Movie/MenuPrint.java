@@ -1,6 +1,6 @@
 package Movie;
 
-public class BitBoxMenu {
+public class MenuPrint {
 
 	public static void MovieMenu(){
 		
@@ -21,9 +21,16 @@ public class BitBoxMenu {
 		System.out.println("\t"+MenuIf.EDITMENU2+". 영화 감독 수정");
 		System.out.println("\t"+MenuIf.EDITMENU3+". 영화 런타임 수정");
 		System.out.println("\t"+MenuIf.EDITMENU4+". 수정 내용 전체 출력");
-		System.out.println("\t"+MenuIf.EDITMENU5+". 돌아가기");
+		System.out.println("\t"+MenuIf.MENUHOME+". 영화 메뉴로 돌아가기");
 		System.out.println("----------------------------------");
 		
+	}
+	
+	public static void MenuDelete() {
+		System.out.println("\t"+MenuIf.DELETEMENU1+". YES");
+		System.out.println("\t"+MenuIf.DELETEMENU2+". NO");
+		System.out.println("\t"+MenuIf.MENUHOME+". 영화 메뉴로 돌아가기");
+		System.out.println("----------------------------------");
 	}
 	
 		

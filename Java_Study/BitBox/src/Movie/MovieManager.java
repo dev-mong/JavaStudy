@@ -96,8 +96,8 @@ public class MovieManager {
 		index=-1;
 		for(int i=0;i<movieList.size();i++) {
 			if(movieList.get(i).getTitle().equals(title)) {
-				System.out.println("영화 제목  \""+title+"\" 이 선택되었습니다.");
-				System.out.println("--------------------------------\n");
+				System.out.println("영화 제목  \""+title+"\" 이 선택되었습니다. \n");
+//				System.out.println("--------------------------------\n");
 				index=i;
 			}
 		}
@@ -111,7 +111,6 @@ public class MovieManager {
 		while(true) {
 		try {
 			edittime=Integer.parseInt(edit);
-			
 		}catch(NumberFormatException number) {
 			System.out.println("※※※※※ 런타임은 숫자로 입력하세요 ※※※※※※ ");
 			edit=ip.nextLine();
@@ -133,19 +132,26 @@ public class MovieManager {
 		title=checkInput(title); //공백 예외 처리 
 		index=checkName(title);
 		
-		if(index<0) {
-			InputException.eidtPrint();
-		} 
-		else {
-			
+		try {
+			if(index<0) {
+				InputException e=new InputException();
+				throw e;
+			}
+		}catch(InputException e) {
+			e.nameErr();
+			continue;
+		}
+		
+		
+		//수정 메뉴 
 		while(true) {	
 				
-			BitBoxMenu.MenuEdit();
+			MenuPrint.MenuEdit();
 			
 			int editMenu;
 			try{
 				editMenu = Integer.parseInt(ip.nextLine().trim());
-				if(!(MenuIf.EDITMENU1<=editMenu&&editMenu<=MenuIf.EDITMENU5)) {
+				if(!(MenuIf.MENUHOME<=editMenu&&editMenu<=MenuIf.EDITMENU4)) {
 					InputException input=new InputException();
 					throw input;
 				}
@@ -189,41 +195,90 @@ public class MovieManager {
 				System.out.println("------------------------------");
 				System.out.println("\""+runtime+"\"의 런타임은"+"\""+editRuntime+"\""+"로 수정되었습니다. \n");
 				break;
-
+			
+			//수정 내용 전체 출력 
 			case MenuIf.EDITMENU4:
 				System.out.println("\n========\""+title+"\" 수정 내용 =========");
 				movieList.get(index).showMovieInfo();
 				System.out.println("------------------------------\n");
 				break;
-			case MenuIf.EDITMENU5:
+			
+			//영화 메뉴로 이동 
+			case MenuIf.MENUHOME:
 				System.out.println();
 				return;
 				
 					} //switch - 영화 정보 수정 
 				} //while - 영화 수정 사항 반복
-		}//else
-		
 		}//while 
 	
 	}
 	
 	//영화 삭제
 	public void delMovie() {
-		System.out.println("---삭제 할 영화 이름을 입력하세요---");
+		System.out.println("-------- 삭제 할 영화 제목을 입력하세요 -------");
 		while(true) {
 			title=ip.nextLine();
 			title=checkInput(title); //공백 예외 처리 
 			index=checkName(title);
-			if(index<0) {
-				InputException.eidtPrint();
-			}else {
-				movieList.remove(index);
-				System.out.println("---------------------------------");
-				System.out.println("영화  \""+title+"\""+"이(가) 삭제되었습니다. \n");
-				return;
+			
+			try {
+				if(index<0) {
+					InputException e=new InputException();
+					throw e;
+				}
+			}catch(InputException e) {
+				e.nameErr();
+				continue;
 			}
+
+			//영화 수정 사항 여부 확인 
+			while(true) {
+			System.out.println("---------\""+title+"\" 삭제 여부 확인 ------------");
+			
+			MenuPrint.MenuDelete();
+			
+			//메뉴 선택 예외 처리 
+			int deleteMenu;
+			try {
+				deleteMenu=Integer.parseInt(ip.nextLine().trim());
+				if(!(MenuIf.MENUHOME<=deleteMenu&&deleteMenu<=MenuIf.DELETEMENU2)) {
+					InputException input=new InputException();
+					throw input;
+				}
+			}catch(NumberFormatException e) {
+				System.out.println("※※※※숫자로 다시 입력해주세요.※※※※ \n");
+				continue;
+			}catch(InputException input) { 
+				input.menuErr();
+				continue;
+			}
+			
+			switch(deleteMenu) {
+			
+			//영화 삭제
+			case MenuIf.DELETEMENU1:
+				movieList.remove(index);
+				System.out.println("----------------------------------");
+				System.out.println("영화  \""+title+"\""+"이  삭제되었습니다. \n");
+				break;
+			
+			//영화 삭제 불가
+			case MenuIf.DELETEMENU2:
+				System.out.println("삭제 되지 않았습니다. 삭제를 원하시면 YES 메뉴를 선택하세요. \n");
+				break;
+			
+			//영화 메뉴로 이동 
+			case MenuIf.MENUHOME:
+				System.out.println();
+				return;
+				} //switch 
+			} //while-영화 수정 여부
+		}//while
 		
-		}
+		
+		
+		
 				
 		
 	}
