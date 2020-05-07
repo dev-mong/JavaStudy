@@ -2,6 +2,7 @@ package Movie;
 
 public class MovieMenu {
 
+//	public static void main(String args[]) {
 	public void ShowMenu() {
 		MovieManager m = MovieManager.getInstance();
 		
