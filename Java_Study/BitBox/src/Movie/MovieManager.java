@@ -1,8 +1,6 @@
 package Movie;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -63,10 +61,20 @@ public class MovieManager {
 	
 	//영화 추가 
 	public void addMovie() {
+		
 		while(true) {
 		System.out.println("영화 제목 입력 : ");
 		title = ip.nextLine();
 		title=checkInput(title);
+	
+		for(int i=0;i<movieList.size();i++) { //영화 제목이 동일 할 때 다른 영화 추가 
+			if(movieList.get(i).getTitle().equals(title)) {
+				System.out.println("※※※ 동일 영화가 있습니다. 다른 영화를 추가하세요.※※※ \n");
+				addMovie();
+				return;
+			}
+		}
+		
 		System.out.println("영화 감독 입력 : ");
 		director = ip.nextLine();
 		director=checkInput(director);
@@ -74,20 +82,14 @@ public class MovieManager {
 		String runtimeStr=ip.nextLine();
 		runtimeStr =checkInput(runtimeStr);
 		int runtime=checkRuntime(runtimeStr);
-		
-		//같은 영화 정보 저장 할 떄  
-		for(int i=0;i<movieList.size();i++) {
-			if(movieList.get(i).getTitle().equals(title)&&movieList.get(i).getTitle().equals(director)
-				&&movieList.get(i).getTitle().equals(Integer.toString(runtime))) {
-				System.out.println("동잃 한 영화가 있습니다. 다른 영화를 추가하세요.");
-				return; // addMovie 종료 
-			}
-		}
+
 		movieList.add(new Movie(title, director, runtime));	
 		System.out.println("-------- 신작 영화가 등록되었습니다  -------- \n");
 		break;
 		}
 	}	
+		
+		
 	//영화 정보 여부 확인
 	int index;
 	int checkName(String title) {
