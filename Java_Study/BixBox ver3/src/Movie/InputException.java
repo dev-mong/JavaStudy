@@ -4,7 +4,7 @@ public class InputException extends Exception{
 
 
 	void menuErr() {
-		System.out.println("메뉴는  1번 ~ 5번입니다. 다시입력하세요.");
+		System.out.println("메뉴를 숫자로  다시입력하세요.");
 	}
 	
 	void titleErr() {
@@ -14,7 +14,10 @@ public class InputException extends Exception{
 	void print() {
 		System.out.println("필수 사항 입니다. 다시 입력하세요. ");
 	}
-	static void eidtPrint() {
+	 void nameErr() {
 		System.out.println("입력하신 제목의 영화 정보가 없습니다. 다시입력하세요.");
 	}
+	 
+	
+	
 }
