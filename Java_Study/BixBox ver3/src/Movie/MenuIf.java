@@ -14,7 +14,6 @@ public interface MenuIf  {
 	int EDITMENU2=2;
 	int EDITMENU3=3;
 	int EDITMENU4=4;
-	int EDITMENU5=5;
 	
 	//삭제 메뉴 선택
 	int DELETEMENU1=1;

@@ -20,7 +20,7 @@ public class MenuPrint {
 		System.out.println("\t"+MenuIf.EDITMENU1+". 영화 제목 수정");
 		System.out.println("\t"+MenuIf.EDITMENU2+". 영화 감독 수정");
 		System.out.println("\t"+MenuIf.EDITMENU3+". 영화 런타임 수정");
-		System.out.println("\t"+MenuIf.EDITMENU4+". 수정 내용 전체 출력");
+		System.out.println("\t"+MenuIf.EDITMENU4+". 영화 연령 수정");
 		System.out.println("\t"+MenuIf.MENUHOME+". 영화 메뉴로 돌아가기");
 		System.out.println("----------------------------------");
 		

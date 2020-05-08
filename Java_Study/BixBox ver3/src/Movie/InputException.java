@@ -4,7 +4,7 @@ public class InputException extends Exception{
 
 
 	void menuErr() {
-		System.out.println("메뉴를 숫자로  다시입력하세요.");
+		System.out.println("선택하신 메뉴는 존재하지 않습니다. 다시 입력해주세요");
 	}
 	
 	void titleErr() {
