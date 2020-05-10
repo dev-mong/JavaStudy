@@ -1,4 +1,4 @@
-package user1;
+package user;
 
 import Ticket.Ticket;
 

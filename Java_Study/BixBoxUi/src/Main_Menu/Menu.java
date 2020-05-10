@@ -5,13 +5,13 @@ import Movie.MovieMenu;
 import Ticket.TicketManager;
 import TimeTable.ScreenMenu;
 import TimeTable.TimeTableMenu;
+import user.InfoManager;
+import user.NoMemberInfo;
 import user.exception.EmptyIntegerException;
 import user.exception.EmptyStringException;
 import user.exception.OutOfNumberException;
-import user1.InfoManager;
-import user1.NoMemberInfo;
 
-public class Menu1 {
+public class Menu {
 
 	InfoManager info = InfoManager.getInst();
 	TicketManager tm = new TicketManager();
@@ -260,7 +260,6 @@ public class Menu1 {
 										continue outerLoop;
 
 									}
-
 								}
 							}
 						case 3:

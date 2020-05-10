@@ -8,9 +8,9 @@ import Movie.MovieManager;
 import TimeTable.Seat;
 import TimeTable.TimeTable;
 import TimeTable.TimeTableManager;
+import user.Info;
+import user.MemberInfo;
 import user.exception.OutOfNumberException;
-import user1.Info;
-import user1.MemberInfo;
 
 public class TicketManager {
 
