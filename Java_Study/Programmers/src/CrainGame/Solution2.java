@@ -41,8 +41,11 @@ public class Solution2 {
 	    		  	System.out.print(board[i][j] +" "); //배열의 랜덤 값 출력
 	    		  	top=j;
 		    	}System.out.println("\t");
-		    }
-	    System.out.println(top);
+	    }
+	    
+	    
+	    
+	    
 
 	}
 
