@@ -1,7 +1,8 @@
 package ver03;
 
 public class MovieMenu {
-	public void ShowMenu() {
+	public static void main(String arg[]) {
+//	public void ShowMenu() {
 		MovieManager m = MovieManager.getInstance();
 		
 		int num;
