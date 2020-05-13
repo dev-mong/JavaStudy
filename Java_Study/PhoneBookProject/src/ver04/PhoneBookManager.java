@@ -2,7 +2,9 @@ package ver04;
 
 import java.util.Scanner;
 
-/*수정 : 데이터 수정 시 새로운 객체 생성하여 배열에 객체의 새로운 주소 값을 저장 하는 코드 추가 */
+/*
+ * 수정 내용 : 데이터 수정 시 새로운 객체 생성하여 배열에 객체의 새로운 주소 값을 저장 하는 코드 추가 
+ * */
 
 
 public class PhoneBookManager {
